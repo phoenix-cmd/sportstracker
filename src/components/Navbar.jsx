@@ -17,7 +17,7 @@ function Navbar() {
 
         {/* ✅ Navigation Links */}
         <div className="hidden md:flex space-x-6">
-          <Link to="/" className="hover:text-gray-400">Home</Link>
+          <Link to="/home" className="hover:text-gray-400">Home</Link>
           <Link to="/players" className="hover:text-gray-400">Players</Link>
           <Link to="/teams" className="hover:text-gray-400">Teams</Link>
           <Link to="/matches" className="hover:text-gray-400">Matches</Link>

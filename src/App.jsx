@@ -13,17 +13,17 @@ import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 
 function App() {
-  const location = useLocation(); // ✅ Get current route
-  const hideNavbarFooter = ["/", "/signup"].includes(location.pathname); // ✅ Hide on Landing & Signup
+  const location = useLocation(); 
+  const hideNavbarFooter = ["/", "/signup", "/landing","/admin"].includes(location.pathname); // ✅ Now hides on Landing Page too
 
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
-      {/* ✅ Show Navbar only if not on Landing or Signup */}
-      {!hideNavbarFooter && <Navbar />}
-
+      {!hideNavbarFooter && <Navbar />} {/* ✅ Navbar hidden on Landing & Signup & Landing Page */}
+      
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/landing" element={<Landing />} /> {/* ✅ Route for explicit Landing Page */}
           <Route path="/home" element={<Home />} />
           <Route path="/players" element={<Players />} />
           <Route path="/teams" element={<Teams />} />
@@ -35,8 +35,7 @@ function App() {
         </Routes>
       </div>
 
-      {/* ✅ Show Footer only if not on Landing or Signup */}
-      {!hideNavbarFooter && <Footer />}
+      {!hideNavbarFooter && <Footer />} {/* ✅ Footer hidden on Landing & Signup & Landing Page */}
     </div>
   );
 }
