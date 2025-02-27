@@ -1,8 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -73,7 +69,8 @@ button:focus-visible {
   }
  
 } */
-@themes inline {
+
+@theme inline {
   --color-midnight: #274472;
   --color-dark: #189ab4;
   --color-light: #75e6da;
