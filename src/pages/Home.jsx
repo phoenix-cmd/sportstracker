@@ -2,7 +2,7 @@ import React from "react";
 
 function Home() {
   return (
-    <div className="flex flex-col flex-grow min-h-screen justify-center items-center text-center bg-surface-900 text-white px-6">
+    <div className="flex flex-col flex-grow min-h-screen max-w-screen justify-center items-center text-center bg-surface-900 text-white px-6">
       <h1 className="text-4xl md:text-6xl font-bold">LFC</h1>
       <p className="mt-4 text-gray-400 max-w-2xl">
         This site was made to help colleges and universities track tournaments held in their respective campuses.

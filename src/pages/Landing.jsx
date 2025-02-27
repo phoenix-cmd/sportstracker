@@ -41,7 +41,7 @@ const Landing = () => {
           </button>
 
           {/* ✅ Sign-Up Button (Desktop) */}
-          <a href="/signup" className="hidden md:flex items-center bg-blue-500 px-3 py-2 rounded-md hover:bg-blue-600 transition">
+          <a href="/signup" className="hidden md:flex items-center bg-midnight px-3 py-2 rounded-md hover:bg-blue-600 transition">
             <span className="text-white flex items-center gap-2">Get Started <FaArrowCircleRight className="w-5 h-5 ml-1" /></span>
           </a>
         </div>
