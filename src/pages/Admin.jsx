@@ -118,16 +118,18 @@ function AdminPage() {
     <div className="min-h-screen bg-gray-900 text-white p-10">
       {/* Navbar */}
       <nav className="flex justify-around bg-gray-800 p-4 mb-6 rounded-lg shadow-lg">
-        <Link to="/pages/CricketMatches" className="text-white font-bold hover:text-yellow-400 transition duration-300">Cricket</Link>
-        <Link to="/admin/football" className="text-white font-bold hover:text-yellow-400 transition duration-300">Football</Link>
-        <Link to="/admin/badminton" className="text-white font-bold hover:text-yellow-400 transition duration-300">Badminton</Link>
+        <Link to="/admin/cricket-matches" className="text-white font-bold hover:text-yellow-400 transition duration-300">Cricket Matches</Link>
+        <Link to="/admin/football-matches" className="text-white font-bold hover:text-yellow-400 transition duration-300">Football Matches</Link>
+        <Link to="/admin/badminton-matches" className="text-white font-bold hover:text-yellow-400 transition duration-300">Badminton Matches</Link>
+        <Link to="/admin/players" className="text-white font-bold hover:text-yellow-400 transition duration-300">Manage Players</Link>
+        <Link to="/admin/teams" className="text-white font-bold hover:text-yellow-400 transition duration-300">Manage Teams</Link>
       </nav>
 
       <h1 className="text-4xl font-bold text-center mb-10">Admin Dashboard</h1>
 
       {/* Add Player Section */}
       <h2 className="text-3xl font-bold mb-4">Add Player</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 md-grid-cols-3 gap-4 mb-6">
         <input type="text" name="name" placeholder="Player Name" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handlePlayerChange} />
         <select name="sport" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handlePlayerChange}>
           <option>Football</option>
@@ -140,7 +142,7 @@ function AdminPage() {
 
       {/* Add Team Section */}
       <h2 className="text-3xl font-bold mt-10 mb-4">Add Team</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 md-grid-cols-3 gap-4 mb-6">
         <input type="text" name="name" placeholder="Team Name" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handleTeamChange} />
         <select name="sport" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handleTeamChange}>
           <option>Football</option>
