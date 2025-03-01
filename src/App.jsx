@@ -12,10 +12,11 @@ import Admin from "./pages/Admin";
 import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 import CricketMatches from "./pages/CricketMatches";
+import AddPlayer from "./pages/AddPlayer";
 
 function App() {
   const location = useLocation(); 
-  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin","/admin/cricket-matches"].includes(location.pathname);
+  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin", "/admin/cricket-matches", "/admin/add-player"].includes(location.pathname);
 
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
@@ -34,6 +35,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin/cricket-matches" element={<CricketMatches />} />
+          <Route path="/admin/add-player" element={<AddPlayer />} />
         </Routes>
       </div>
 
