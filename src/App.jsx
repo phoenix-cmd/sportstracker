@@ -17,7 +17,7 @@ import TeamPage from "./pages/TeamPage";
 
 function App() {
   const location = useLocation();
-  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin"].includes(
+  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin","/admin/teams","/admin/add-player","/admin/cricket-matches"].includes(
     location.pathname
   ); // ✅ Now hides on Landing Page too
 

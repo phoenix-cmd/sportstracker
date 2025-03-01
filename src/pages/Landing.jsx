@@ -196,7 +196,7 @@ const Landing = () => {
             <span className="text-white m-1">
               {/* <img src={Logo} alt="" className="h-10 w-10" /> */}
             </span>
-            <span className="text-dark">Lc Tournament</span>
+            <span className="text-indigo-600">LFC Tournament</span>
           </a>
 
           <button
