@@ -145,44 +145,6 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen">
-      {/* <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-blue-950" : "bg-transparent"
-        } bg-opacity-90`}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-          
-          <a
-            href="/"
-            className="flex items-center text-xl sm:text-3xl font-bold text-white gap-1.5"
-          >
-            <img
-              src={logoPlaceholder}
-              alt="Logo"
-              className="h-10 w-10 rounded-full"
-            />
-            <span className="text-dark">Lc Tournament</span>
-          </a>
-
-          
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
-          >
-            <FaArrowCircleRight className="w-6 h-6" />
-          </button>
-
-          
-          <a
-            href="/signup"
-            className="hidden md:flex items-center bg-midnight px-3 py-2 rounded-md hover:bg-blue-600 transition"
-          >
-            <span className="text-white flex items-center gap-2">
-              Get Started <FaArrowCircleRight className="w-5 h-5 ml-1" />
-            </span>
-          </a>
-        </div>
-      </nav> */}
       <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-midnight/0 backdrop-blur-md">
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between ${
