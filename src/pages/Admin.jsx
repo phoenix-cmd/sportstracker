@@ -92,111 +92,66 @@
 // }
 
 // export default Admin;
-
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Admin() {
-  // ✅ Dummy Data for Players (Filtered for Football, Basketball, and Badminton)
-  const [players, setPlayers] = useState([
-    { id: 1, name: "Cristiano Ronaldo", sport: "Football", position: "Forward", age: 39, height: "6'2\"", goals: 12, assists: 8, fouls: 3 },
-    { id: 2, name: "Lionel Messi", sport: "Football", position: "Forward", age: 36, height: "5'7\"", goals: 15, assists: 12, fouls: 2 },
-    { id: 3, name: "LeBron James", sport: "Basketball", position: "Small Forward", age: 39, height: "6'9\"", points: 30, rebounds: 10, assists: 9 },
-    { id: 4, name: "Kevin Durant", sport: "Basketball", position: "Power Forward", age: 35, height: "6'10\"", points: 27, rebounds: 8, assists: 7 },
-    { id: 5, name: "Kento Momota", sport: "Badminton", position: "Singles", age: 29, height: "5'9\"", wins: 42, losses: 6, titles: 3 },
-  ]);
+function AdminPage() {
+  const [players, setPlayers] = useState([]);
+  const [teams, setTeams] = useState([]);
+  const [newPlayer, setNewPlayer] = useState({ name: "", sport: "Football", position: "" });
+  const [newTeam, setNewTeam] = useState({ name: "", sport: "Football", coach: "" });
 
-  // ✅ Dummy Data for Teams
-  const [teams, setTeams] = useState([
-    { id: 1, name: "Real Madrid", sport: "Football", coach: "Carlo Ancelotti", players: 25 },
-    { id: 2, name: "Los Angeles Lakers", sport: "Basketball", coach: "Darvin Ham", players: 15 },
-    { id: 3, name: "Japan National Team", sport: "Badminton", coach: "Park Joo-bong", players: 8 },
-  ]);
-
-  // ✅ State for New Players & Teams
-  const [newPlayer, setNewPlayer] = useState({ name: "", sport: "Football", position: "", age: "", height: "", goals: "", assists: "", fouls: "" });
-  const [newTeam, setNewTeam] = useState({ name: "", sport: "Football", coach: "", players: "" });
-
-  // ✅ Handle Input Changes
   const handlePlayerChange = (e) => setNewPlayer({ ...newPlayer, [e.target.name]: e.target.value });
   const handleTeamChange = (e) => setNewTeam({ ...newTeam, [e.target.name]: e.target.value });
 
-  // ✅ Add Player (Only for Selected Sports)
   const addPlayer = () => {
-    if (!["Football", "Basketball", "Badminton"].includes(newPlayer.sport)) return;
     setPlayers([...players, { id: players.length + 1, ...newPlayer }]);
-    setNewPlayer({ name: "", sport: "Football", position: "", age: "", height: "", goals: "", assists: "", fouls: "" });
+    setNewPlayer({ name: "", sport: "Football", position: "" });
   };
 
-  // ✅ Add Team (Only for Selected Sports)
   const addTeam = () => {
-    if (!["Football", "Basketball", "Badminton"].includes(newTeam.sport)) return;
     setTeams([...teams, { id: teams.length + 1, ...newTeam }]);
-    setNewTeam({ name: "", sport: "Football", coach: "", players: "" });
+    setNewTeam({ name: "", sport: "Football", coach: "" });
   };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-10">
+      {/* Navbar */}
+      <nav className="flex justify-around bg-gray-800 p-4 mb-6 rounded-lg shadow-lg">
+        <Link to="/pages/CricketMatches" className="text-white font-bold hover:text-yellow-400 transition duration-300">Cricket</Link>
+        <Link to="/admin/football" className="text-white font-bold hover:text-yellow-400 transition duration-300">Football</Link>
+        <Link to="/admin/badminton" className="text-white font-bold hover:text-yellow-400 transition duration-300">Badminton</Link>
+      </nav>
+
       <h1 className="text-4xl font-bold text-center mb-10">Admin Dashboard</h1>
 
-      {/* ✅ Dashboard Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-        <div className="bg-blue-800 p-6 rounded-lg shadow-lg text-center">
-          <h2 className="text-2xl font-bold">Total Players</h2>
-          <p className="text-4xl">{players.length}</p>
-        </div>
-        <div className="bg-green-800 p-6 rounded-lg shadow-lg text-center">
-          <h2 className="text-2xl font-bold">Total Teams</h2>
-          <p className="text-4xl">{teams.length}</p>
-        </div>
-        <div className="bg-yellow-800 p-6 rounded-lg shadow-lg text-center">
-          <h2 className="text-2xl font-bold">Upcoming Matches</h2>
-          <p className="text-4xl">5</p>
-        </div>
-      </div>
-
-      {/* ✅ Filtered Players List */}
-      <h2 className="text-3xl font-bold mb-4">Manage Players</h2>
-      <table className="w-full border-collapse border border-gray-700 mb-10">
-        <thead>
-          <tr className="bg-gray-800">
-            <th className="border border-gray-700 p-2">Name</th>
-            <th className="border border-gray-700 p-2">Sport</th>
-            <th className="border border-gray-700 p-2">Position</th>
-            <th className="border border-gray-700 p-2">Age</th>
-            <th className="border border-gray-700 p-2">Stats</th>
-          </tr>
-        </thead>
-        <tbody>
-          {players.map((player) => (
-            <tr key={player.id} className="text-center bg-gray-800">
-              <td className="border border-gray-700 p-2">{player.name}</td>
-              <td className="border border-gray-700 p-2">{player.sport}</td>
-              <td className="border border-gray-700 p-2">{player.position}</td>
-              <td className="border border-gray-700 p-2">{player.age}</td>
-              <td className="border border-gray-700 p-2">
-                {player.sport === "Football" && `G/A: ${player.goals}/${player.assists}, Fouls: ${player.fouls}`}
-                {player.sport === "Basketball" && `PTS: ${player.points}, REB: ${player.rebounds}, AST: ${player.assists}`}
-                {player.sport === "Badminton" && `Wins: ${player.wins}, Losses: ${player.losses}, Titles: ${player.titles}`}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* ✅ Add Player Form */}
+      {/* Add Player Section */}
       <h2 className="text-3xl font-bold mb-4">Add Player</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <input type="text" name="name" placeholder="Player Name" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handlePlayerChange} />
         <select name="sport" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handlePlayerChange}>
           <option>Football</option>
-          <option>Basketball</option>
+          <option>Cricket</option>
           <option>Badminton</option>
         </select>
         <input type="text" name="position" placeholder="Position" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handlePlayerChange} />
       </div>
       <button onClick={addPlayer} className="bg-blue-600 p-2 rounded hover:bg-blue-700">Add Player</button>
+
+      {/* Add Team Section */}
+      <h2 className="text-3xl font-bold mt-10 mb-4">Add Team</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <input type="text" name="name" placeholder="Team Name" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handleTeamChange} />
+        <select name="sport" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handleTeamChange}>
+          <option>Football</option>
+          <option>Cricket</option>
+          <option>Badminton</option>
+        </select>
+        <input type="text" name="coach" placeholder="Coach Name" className="p-2 bg-gray-800 border border-gray-600 rounded" onChange={handleTeamChange} />
+      </div>
+      <button onClick={addTeam} className="bg-green-600 p-2 rounded hover:bg-green-700">Add Team</button>
     </div>
   );
 }
 
-export default Admin;
+export default AdminPage;
