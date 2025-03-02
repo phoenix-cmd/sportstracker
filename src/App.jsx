@@ -17,14 +17,19 @@ import TeamPage from "./pages/TeamPage";
 
 function App() {
   const location = useLocation();
-  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin","/admin/teams","/admin/add-player","/admin/cricket-matches"].includes(
-    location.pathname
-  ); // ✅ Now hides on Landing Page too
+  const hideNavbarFooter = [
+    "/",
+    "/signup",
+    "/landing",
+    "/admin",
+    "/admin/teams",
+    "/admin/add-player",
+    "/admin/cricket-matches",
+  ].includes(location.pathname); // ✅ Now hides on Landing Page too
 
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
       {!hideNavbarFooter && <Navbar />}{" "}
-      {/* ✅ Navbar hidden on Landing & Signup & Landing Page */}
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -40,7 +45,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin/cricket-matches" element={<CricketMatches />} />
           <Route path="/admin/add-player" element={<AddPlayer />} />
-          <Route path="/admin/teams" element={<TeamPage />}/>
+          <Route path="/admin/teams" element={<TeamPage />} />
         </Routes>
       </div>
       {!hideNavbarFooter && <Footer />}
