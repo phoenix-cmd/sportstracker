@@ -19,21 +19,18 @@ import BadmintonMatches from "./pages/BadmintonMatches";
 
 function App() {
   const location = useLocation();
-<<<<<<< HEAD
+
   const hideNavbarFooter = [
     "/",
     "/signup",
     "/landing",
-    "/admin",
+    "/admin/",
     "/admin/teams",
     "/admin/add-player",
     "/admin/cricket-matches",
-  ].includes(location.pathname); // ✅ Now hides on Landing Page too
-=======
-  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin","/admin/teams","/admin/add-player","/admin/cricket-matches","/admin/football-matches","/admin/badminton-matches"].includes(
-    location.pathname
-  ); // ✅ Now hides on Landing Page too
->>>>>>> 7450d72d72b549266a21615af7d920cdc55004d4
+    "/admin/football-matches",
+    "/admin/badminton-matches",
+  ].includes(location.pathname);
 
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
@@ -53,13 +50,12 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin/cricket-matches" element={<CricketMatches />} />
           <Route path="/admin/add-player" element={<AddPlayer />} />
-<<<<<<< HEAD
           <Route path="/admin/teams" element={<TeamPage />} />
-=======
-          <Route path="/admin/teams" element={<TeamPage />}/>
-          <Route path="/admin/football-matches" element={<FootballMatches />}/>
-          <Route path="/admin/badminton-matches" element={<BadmintonMatches />} />
->>>>>>> 7450d72d72b549266a21615af7d920cdc55004d4
+          <Route path="/admin/football-matches" element={<FootballMatches />} />
+          <Route
+            path="/admin/badminton-matches"
+            element={<BadmintonMatches />}
+          />
         </Routes>
       </div>
       {!hideNavbarFooter && <Footer />}
