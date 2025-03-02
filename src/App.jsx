@@ -12,12 +12,14 @@ import Admin from "./pages/Admin";
 import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 import CricketMatches from "./pages/CricketMatches";
+import FootballMatches from "./pages/FootballMatches";
 import AddPlayer from "./pages/AddPlayer";
 import TeamPage from "./pages/TeamPage";
+import BadmintonMatches from "./pages/BadmintonMatches";
 
 function App() {
   const location = useLocation();
-  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin","/admin/teams","/admin/add-player","/admin/cricket-matches"].includes(
+  const hideNavbarFooter = ["/", "/signup", "/landing", "/admin","/admin/teams","/admin/add-player","/admin/cricket-matches","/admin/football-matches","/admin/badminton-matches"].includes(
     location.pathname
   ); // ✅ Now hides on Landing Page too
 
@@ -41,6 +43,8 @@ function App() {
           <Route path="/admin/cricket-matches" element={<CricketMatches />} />
           <Route path="/admin/add-player" element={<AddPlayer />} />
           <Route path="/admin/teams" element={<TeamPage />}/>
+          <Route path="/admin/football-matches" element={<FootballMatches />}/>
+          <Route path="/admin/badminton-matches" element={<BadmintonMatches />} />
         </Routes>
       </div>
       {!hideNavbarFooter && <Footer />}

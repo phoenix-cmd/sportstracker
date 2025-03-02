@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-function CricketMatches() {
+function FootballMatches() {
+  const location = useLocation();
   const [matches, setMatches] = useState({ live: [], upcoming: [], past: [] });
   const [activeTab, setActiveTab] = useState("live");
 
   useEffect(() => {
-    // Dummy Data for Cricket Matches
+    // Dummy Data for Football Matches
     setMatches({
       live: [
-        { id: 1, teams: "India vs Australia", score: "250/3 (40.2 ov)", status: "Live" },
-        { id: 2, teams: "England vs South Africa", score: "189/5 (30.4 ov)", status: "Live" }
+        { id: 1, teams: "Manchester United vs Liverpool", score: "2-1", time: "75'", status: "Live" },
+        { id: 2, teams: "Barcelona vs Real Madrid", score: "0-0", time: "32'", status: "Live" }
       ],
       upcoming: [
-        { id: 3, teams: "Pakistan vs New Zealand", date: "March 5, 2025", time: "10:00 AM GMT" },
-        { id: 4, teams: "Sri Lanka vs Bangladesh", date: "March 6, 2025", time: "2:00 PM GMT" }
+        { id: 3, teams: "Bayern Munich vs Dortmund", date: "March 5, 2025", time: "8:00 PM CET" },
+        { id: 4, teams: "PSG vs Manchester City", date: "March 6, 2025", time: "9:00 PM CET" }
       ],
       past: [
-        { id: 5, teams: "West Indies vs Afghanistan", score: "West Indies won by 5 wickets" },
-        { id: 6, teams: "India vs England", score: "India won by 30 runs" }
+        { id: 5, teams: "Arsenal vs Chelsea", score: "Arsenal won 3-1" },
+        { id: 6, teams: "Juventus vs Inter Milan", score: "Draw 2-2" }
       ]
     });
   }, []);
@@ -29,7 +30,7 @@ function CricketMatches() {
         <Link 
           to="/admin/cricket-matches" 
           className={`text-ice-blue font-bold transition duration-300 ${
-            window.location.pathname === '/admin/cricket-matches' 
+            location.pathname === '/admin/cricket-matches' 
               ? 'text-blue-500' 
               : 'hover:text-yellow-400'
           }`}
@@ -39,7 +40,7 @@ function CricketMatches() {
         <Link 
           to="/admin/football-matches" 
           className={`text-ice-blue font-bold transition duration-300 ${
-            window.location.pathname === '/admin/football-matches' 
+            location.pathname === '/admin/football-matches' 
               ? 'text-blue-500' 
               : 'hover:text-yellow-400'
           }`}
@@ -49,7 +50,7 @@ function CricketMatches() {
         <Link 
           to="/admin/badminton-matches" 
           className={`text-ice-blue font-bold transition duration-300 ${
-            window.location.pathname === '/admin/badminton-matches' 
+            location.pathname === '/admin/badminton-matches' 
               ? 'text-blue-500' 
               : 'hover:text-yellow-400'
           }`}
@@ -58,7 +59,7 @@ function CricketMatches() {
         </Link>
       </nav>
       
-      <h1 className="text-4xl font-bold text-center mb-10">Cricket Matches</h1>
+      <h1 className="text-4xl font-bold text-center mb-10">Football Matches</h1>
       
       {/* Tab Navigation */}
       <div className="flex justify-center space-x-4 mb-6">
@@ -73,7 +74,9 @@ function CricketMatches() {
           <h2 className="text-3xl font-bold mb-4">Live Matches</h2>
           <ul className="mb-6">
             {matches.live.map(match => (
-              <li key={match.id} className="p-4 bg-blue-900 mb-2 rounded-lg shadow-md text-lg font-semibold">{match.teams} - {match.score}</li>
+              <li key={match.id} className="p-4 bg-blue-900 mb-2 rounded-lg shadow-md text-lg font-semibold">
+                {match.teams} - {match.score} ({match.time})
+              </li>
             ))}
           </ul>
         </div>
@@ -83,7 +86,9 @@ function CricketMatches() {
           <h2 className="text-3xl font-bold mb-4">Upcoming Matches</h2>
           <ul className="mb-6">
             {matches.upcoming.map(match => (
-              <li key={match.id} className="p-4 bg-blue-800 mb-2 rounded-lg shadow-md text-lg font-semibold">{match.teams} - {match.date} at {match.time}</li>
+              <li key={match.id} className="p-4 bg-blue-800 mb-2 rounded-lg shadow-md text-lg font-semibold">
+                {match.teams} - {match.date} at {match.time}
+              </li>
             ))}
           </ul>
         </div>
@@ -93,7 +98,9 @@ function CricketMatches() {
           <h2 className="text-3xl font-bold mb-4">Past Matches</h2>
           <ul>
             {matches.past.map(match => (
-              <li key={match.id} className="p-4 bg-gray-800 mb-2 rounded-lg shadow-md text-lg font-semibold">{match.teams} - {match.score}</li>
+              <li key={match.id} className="p-4 bg-gray-800 mb-2 rounded-lg shadow-md text-lg font-semibold">
+                {match.teams} - {match.score}
+              </li>
             ))}
           </ul>
         </div>
@@ -102,4 +109,4 @@ function CricketMatches() {
   );
 }
 
-export default CricketMatches;
+export default FootballMatches;
