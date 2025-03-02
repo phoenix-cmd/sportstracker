@@ -27,6 +27,7 @@ function App() {
     "/admin/teams",
     "/admin/add-player",
     "/admin/cricket-matches",
+    "/admin/"
   ].includes(location.pathname); // ✅ Now hides on Landing Page too
 
   return (
