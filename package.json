@@ -9,8 +9,8 @@
   "build": "vite build",
   "lint": "eslint .",
   "preview": "vite preview",
-  "predeploy": "npm run build",  // Make sure this runs the build step
-  "deploy": "gh-pages -d dist"   // Vite generates the build in the 'dist' folder
+  "predeploy": "npm run build",  
+  "deploy": "gh-pages -d dist"  
 },
 
   "dependencies": {
