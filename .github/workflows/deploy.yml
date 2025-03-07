@@ -1,9 +1,9 @@
-name: Deploy React App to GitHub Pages
+name: Deploy Vite App to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # Trigger the workflow when code is pushed to the main branch
 
 jobs:
   deploy:
@@ -13,20 +13,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 18  # Use the version that matches your project
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install  # Install project dependencies
 
       - name: Build Project
-        run: npm run build
+        run: npm run build  # Run the build command to generate the dist directory
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: build
-          token: ${{ secrets.GITHUB_TOKEN }}  # ✅ Use GitHub Token for authentication
+          branch: gh-pages  # The branch where the build will be deployed
+          folder: dist  # Vite creates the build in the 'dist' folder, not 'build'
+          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
+
