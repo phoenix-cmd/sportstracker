@@ -9,5 +9,5 @@ export default defineConfig({
   base: "/sportstracker/", // Change this to your GitHub repo name!
   build: {
     outDir: "dist" // GitHub Pages expects the output here
-  }Fixed
+  }
 });
