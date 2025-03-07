@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
       {!hideNavbarFooter && <Navbar />}{" "}
-      <div className="flex-grow">
+      <div className="flex-grow">         {/* ✅ Add a class to make the content flex-grow */} 
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/landing" element={<Landing />} />{" "}
