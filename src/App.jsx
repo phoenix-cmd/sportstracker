@@ -19,6 +19,7 @@ import BadmintonMatches from "./pages/BadmintonMatches";
 
 function App() {
   const location = useLocation();
+
   const hideNavbarFooter = [
     "/",
     "/signup",
@@ -27,8 +28,10 @@ function App() {
     "/admin/teams",
     "/admin/add-player",
     "/admin/cricket-matches",
-    "/admin/",
-  ].includes(location.pathname); // ✅ Now hides on Landing Page too
+    "/admin/football-matches",
+    "/admin/badminton-matches",
+    "/admin"
+  ].includes(location.pathname);
 
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
@@ -49,6 +52,11 @@ function App() {
           <Route path="/admin/cricket-matches" element={<CricketMatches />} />
           <Route path="/admin/add-player" element={<AddPlayer />} />
           <Route path="/admin/teams" element={<TeamPage />} />
+          <Route path="/admin/football-matches" element={<FootballMatches />} />
+          <Route
+            path="/admin/badminton-matches"
+            element={<BadmintonMatches />}
+          />
         </Routes>
       </div>
       {!hideNavbarFooter && <Footer />}
@@ -57,3 +65,4 @@ function App() {
 }
 
 export default App;
+
