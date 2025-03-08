@@ -1,18 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-const calculateAge = (birthDate) => {
-  const today = new Date();
-  const birth = new Date(birthDate);
-  let age = today.getFullYear() - birth.getFullYear();
-  const monthDiff = today.getMonth() - birth.getMonth();
-
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-    age--;
-  }
-
-  return age;
-};
+import { ToastContainer } from "react-toastify";
+import { showToast } from "../components/Ui/Toastify";
 
 function AddPlayer() {
   const [player, setPlayer] = useState({
@@ -70,13 +59,14 @@ function AddPlayer() {
       );
 
       if (response.ok) {
-        console.log("Player added successfully");
-        // Reset form or show success message
+        showToast("Player added", "Success");
       } else {
-        console.error("Failed to add player");
+        const data = await response.json();
+
+        showToast(data.message, "error");
       }
     } catch (error) {
-      console.error("Error:", error);
+      showToast("Something is missing", "error");
     } finally {
       setLoading(false);
     }

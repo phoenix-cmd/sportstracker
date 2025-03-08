@@ -16,6 +16,10 @@ import FootballMatches from "./pages/FootballMatches";
 import AddPlayer from "./pages/AddPlayer";
 import TeamPage from "./pages/TeamPage";
 import BadmintonMatches from "./pages/BadmintonMatches";
+import Profile from "./pages/profile";
+import AddMatch from "./pages/AddMatch";
+import MatchScoreMaintain from "./pages/matchScoreMaintain";
+import Status from "./pages/AdminPage/matchScore/Status";
 
 function App() {
   const location = useLocation();
@@ -23,35 +27,42 @@ function App() {
     "/",
     "/signup",
     "/landing",
-    "/admin/",
+    "/admin",
     "/admin/teams",
     "/admin/add-player",
     "/admin/cricket-matches",
     "/admin/",
-  ].includes(location.pathname); // ✅ Now hides on Landing Page too
+    "/admin/cricket-matches",
+    "/admin/add-player",
+  ].includes(location.pathname);
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col">
-      {!hideNavbarFooter && <Navbar />}{" "}
-      <div className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/landing" element={<Landing />} />{" "}
-          {/* ✅ Route for explicit Landing Page */}
-          <Route path="/home" element={<Home />} />
-          <Route path="/players" element={<Players />} />
-          <Route path="/teams" element={<Teams />} />
-          <Route path="/matches" element={<Matches />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/players/:playerName" element={<PlayerDetails />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/admin/cricket-matches" element={<CricketMatches />} />
-          <Route path="/admin/add-player" element={<AddPlayer />} />
-          <Route path="/admin/teams" element={<TeamPage />} />
-        </Routes>
-      </div>
-      {!hideNavbarFooter && <Footer />}
+    <div>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/players" element={<Players />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/matches" element={<Matches />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/players/:playerName" element={<PlayerDetails />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/admin/cricket-matches" element={<CricketMatches />} />
+        <Route path="/admin/add-player" element={<AddPlayer />} />
+        <Route path="/admin/teams" element={<TeamPage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/admin/addmatch" element={<AddMatch />} />
+        <Route
+          path="/admin/matchscoremaintain"
+          element={<MatchScoreMaintain />}
+        />
+        <Route
+          path="/admin/matchscoremaintain/status/:matchid"
+          element={<Status />}
+        />
+      </Routes>
     </div>
   );
 }

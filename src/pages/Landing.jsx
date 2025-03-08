@@ -15,28 +15,6 @@ import { HiMenu, HiX } from "react-icons/hi";
 // ✅ Dummy logo placeholder (You can replace this with an actual logo)
 const logoPlaceholder = "https://via.placeholder.com/40";
 
-// ✅ Athlete Data
-// const athleteSlides = [
-//   {
-//     image:
-//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVnpCr3xMG3KwrXYYNY8Qwe0VYIn9KlmyHjE5wMcK35SquMbRsDbSOTIM&usqp=CAE&s",
-//     name: "Cristiano Ronaldo",
-//     category: "Football",
-//   },
-//   {
-//     image:
-//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkVfD7jt0ws7S7psRIMChaewxLpFeOeqTWIlP1rgup4sBJTAcYVAgzSN4&usqp=CAE&s",
-//     name: "Lionel Messi",
-//     category: "Football",
-//   },
-//   {
-//     image:
-//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-TJn1VUs1vgRqW6tsQp4lEleJnRxOxTq9Ng&s",
-//     name: "LeBron James",
-//     category: "Basketball",
-//   },
-// ];
-
 const athleteSlides = [
   {
     image:
@@ -114,7 +92,7 @@ const renderAthleteSlide = (slide) => (
       {/* Content overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
         <div className="transform transition-transform duration-300 group-hover:translate-y-0">
-          <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">
+          <h3 className="text-2xl font-bold mb-2 drop-shadow-lg text-center">
             {slide.name}
           </h3>
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -246,32 +224,36 @@ const Landing = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-transparent" />
 
-          <div className="absolute inset-0 flex items-center justify-evenly px-4 sm:px-6 lg:px-8">
-            <div className="text-start sm:text-midnight text-white">
-              <h1 className="text-4xl sm:text-3xl md:text-6xl font-bold mb-6">
+          <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div className="text-start sm:text-midnight text-lightest">
+              <h1 className="text-4xl sm:text-3xl md:text-6xl font-bold mb-6 text-lightest text-center">
                 Welcome to Sports League
               </h1>
-              <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-200 mb-8 text-center mx-auto">
                 Join the ultimate sports community and showcase your talent
               </p>
-              <a
-                href="/signup"
-                className="inline-block bg-blue-500 px-8 py-5 rounded-md text-white font-semibold hover:bg-blue-600 transition-colors duration-200"
-              >
-                Get Started Today
-              </a>
+              <div className="flex items-center justify-center">
+                <a
+                  href="/signup"
+                  className=" bg-dark px-5 py-3 rounded-md text-light font-bold hover:bg-lightest hover:text-dark transition-colors duration-200"
+                >
+                  Get Started Today
+                </a>
+              </div>
             </div>
-            <div></div>
           </div>
         </div>
 
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            <h2 className="text-4xl font-bold text-center mb-12 text-light">
               THE PROCESS
             </h2>
             {[1, 2, 3, 4, 5].map((index) => (
-              <div className="xl:w-[60%] md:w-[80%] w-full mx-auto mb-10 flex items-center justify-between">
+              <div
+                key={index}
+                className="xl:w-[60%] md:w-[80%] w-full mx-auto mb-10 flex items-center justify-between"
+              >
                 <div className="flex-1">
                   <div className="flex items-center justify-between gap-5 bg-gray-500/40 px-8 py-5 rounded-lg text-white">
                     <div className="flex items-center justify-start  gap-5">
@@ -303,7 +285,7 @@ const Landing = () => {
           <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-midnight via-midnight/40 to-midnight " />
 
           <div className="absolute inset-0 flex flex-col justify-between px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto px-4 text-white">
+            <div className="container mx-auto px-4 text-light">
               <h2 className="text-4xl font-bold text-center mb-12">
                 Our Athletes
               </h2>
@@ -320,7 +302,7 @@ const Landing = () => {
 
         <section className="py-20 ">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-light mb-6">
               Ready to Join Our Sports Community?
             </h2>
             <p className="text-xl text-white/80 mb-8">
@@ -328,7 +310,7 @@ const Landing = () => {
             </p>
             <a
               href="/signup"
-              className="inline-block bg-white px-8 py-4 rounded-md text-blue-600 font-semibold hover:bg-gray-100 transition-colors duration-200"
+              className="inline-block bg-light px-8 py-4 rounded-md text-dark font-semibold hover:bg-gray-100 transition-colors duration-200"
             >
               Join Now
             </a>
