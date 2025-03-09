@@ -16,12 +16,10 @@ import FootballMatches from "./pages/FootballMatches";
 import AddPlayer from "./pages/AddPlayer";
 import TeamPage from "./pages/TeamPage";
 import BadmintonMatches from "./pages/BadmintonMatches";
-<<<<<<< HEAD
 
 function App() {
   const location = useLocation();
 
-=======
 import Profile from "./pages/profile";
 import AddMatch from "./pages/AddMatch";
 import MatchScoreMaintain from "./pages/matchScoreMaintain";
@@ -29,12 +27,10 @@ import Status from "./pages/AdminPage/matchScore/Status";
 
 function App() {
   const location = useLocation();
->>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
   const hideNavbarFooter = [
     "/",
     "/signup",
     "/landing",
-<<<<<<< HEAD
     "/admin/",
     "/admin/teams",
     "/admin/add-player",
@@ -71,7 +67,6 @@ function App() {
         </Routes>
       </div>
       {!hideNavbarFooter && <Footer />}
-=======
     "/admin",
     "/admin/teams",
     "/admin/add-player",
@@ -108,13 +103,9 @@ function App() {
           element={<Status />}
         />
       </Routes>
->>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
     </div>
   );
 }
 
 export default App;
-<<<<<<< HEAD
 
-=======
->>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
