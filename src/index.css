@@ -73,8 +73,13 @@ button:focus-visible {
 } */
 
 @theme inline {
+<<<<<<< HEAD
   --color-midnight: #274472;
   --color-dark: #189ab4;
+=======
+  --color-midnight: #050a30;
+  --color-dark: #000c66;
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
   --color-light: #75e6da;
   --color-lightest: #d4f1f4;
   --color-sidebar-ring: var(--sidebar-ring);

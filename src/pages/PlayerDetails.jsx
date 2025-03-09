@@ -1,11 +1,50 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
 import React from "react";
 import { useParams } from "react-router-dom";
 
 const players = [
+<<<<<<< HEAD
   { id: 1, name: "Cristiano Ronaldo", age: 39, height: `6'2"`, position: "Forward", goals: 820, assists: 230, fouls: 50, sport: "Football" },
   { id: 2, name: "LeBron James", age: 39, height: `6'9"`, position: "Small Forward", points: 39000, assists: 10000, rebounds: 10000, sport: "Basketball" },
   { id: 3, name: "Kento Momota", age: 30, height: `5'9"`, position: "Singles", wins: 250, losses: 60, smashes: 900, sport: "Badminton" },
+=======
+  {
+    id: 1,
+    name: "Cristiano Ronaldo",
+    age: 39,
+    height: `6'2"`,
+    position: "Forward",
+    goals: 820,
+    assists: 230,
+    fouls: 50,
+    sport: "Football",
+  },
+  {
+    id: 2,
+    name: "LeBron James",
+    age: 39,
+    height: `6'9"`,
+    position: "Small Forward",
+    points: 39000,
+    assists: 10000,
+    rebounds: 10000,
+    sport: "Basketball",
+  },
+  {
+    id: 3,
+    name: "Kento Momota",
+    age: 30,
+    height: `5'9"`,
+    position: "Singles",
+    wins: 250,
+    losses: 60,
+    smashes: 900,
+    sport: "Badminton",
+  },
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
 ];
 
 function PlayerDetails() {

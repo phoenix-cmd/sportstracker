@@ -10,7 +10,11 @@ function TeamCard({ logo, name, sport }) {
           alt={name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
         {/* ✅ Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
 

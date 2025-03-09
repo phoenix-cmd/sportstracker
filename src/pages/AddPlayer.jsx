@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 
 const calculateAge = (birthDate) => {
   const today = new Date();
@@ -13,6 +14,10 @@ const calculateAge = (birthDate) => {
 
   return age;
 };
+=======
+import { ToastContainer } from "react-toastify";
+import { showToast } from "../components/Ui/Toastify";
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
 
 function AddPlayer() {
   const [player, setPlayer] = useState({
@@ -70,6 +75,7 @@ function AddPlayer() {
       );
 
       if (response.ok) {
+<<<<<<< HEAD
         console.log("Player added successfully");
         // Reset form or show success message
       } else {
@@ -77,6 +83,16 @@ function AddPlayer() {
       }
     } catch (error) {
       console.error("Error:", error);
+=======
+        showToast("Player added", "Success");
+      } else {
+        const data = await response.json();
+
+        showToast(data.message, "error");
+      }
+    } catch (error) {
+      showToast("Something is missing", "error");
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
     } finally {
       setLoading(false);
     }

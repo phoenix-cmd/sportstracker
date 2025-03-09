@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { showToast } from "../components/Ui/Toastify";
+<<<<<<< HEAD
+=======
+import ErrorHandler from "../components/Ui/StatusCodeError";
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
 
 function TeamPage() {
   const [teams, setTeams] = useState([]);
@@ -9,6 +13,11 @@ function TeamPage() {
   const [allTeams, setAllTeams] = useState([]);
   const [teamsLoading, setTeamsLoading] = useState(false);
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
+=======
+  const [error, setError] = useState(null);
+  const [teamsError, setteamsError] = useState(null);
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
   const [newTeam, setNewTeam] = useState({
     name: "",
     photo: null,
@@ -28,10 +37,27 @@ function TeamPage() {
         if (response.status == 200) {
           setPlayers(data.data || []);
         } else {
+<<<<<<< HEAD
           showToast(data.message, "error");
         }
       } catch (error) {
         showToast("Fetch Error", "error");
+=======
+          if (response.status === 400) {
+            setError({
+              statusCode: 400,
+              message: data.message || "Bad request",
+            });
+            return null;
+          }
+          if (response.status === 404) {
+            setError({ statusCode: 404, message: "Not found" });
+            return null;
+          }
+        }
+      } catch (error) {
+        setError({ statusCode: 500, message: "Failed to fetch" });
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
       } finally {
         setLoading(false);
       }
@@ -43,12 +69,17 @@ function TeamPage() {
     setTeamsLoading(true);
     const fetchPlayers = async () => {
       setAllTeams([]);
+<<<<<<< HEAD
+=======
+      setteamsError(null);
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
       try {
         const response = await fetch(
           `http://localhost:2000/api/v2/admin/allteams?sports=${newTeam.sport}`
         );
         const data = await response.json();
         if (response.status === 200) {
+<<<<<<< HEAD
           setAllTeams(data.data.teams || []);
         } else {
           setAllTeams([]);
@@ -56,6 +87,14 @@ function TeamPage() {
       } catch (error) {
         showToast("Failed to fetch teams", "error");
         console.error("Error:", error);
+=======
+          setAllTeams(data.data.teams);
+        } else {
+          setteamsError("Failed to Fetch");
+        }
+      } catch (error) {
+        setteamsError("Failed to Fetch");
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
       } finally {
         setTeamsLoading(false);
       }
@@ -134,7 +173,10 @@ function TeamPage() {
         showToast(data.message || "Failed to create team", "error");
       }
     } catch (error) {
+<<<<<<< HEAD
       console.error("Error creating team:", error);
+=======
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
       showToast("Failed to create team", "error");
     } finally {
       setLoading(false);
@@ -179,6 +221,15 @@ function TeamPage() {
     </div>
   );
 
+<<<<<<< HEAD
+=======
+  if (error) {
+    return (
+      <ErrorHandler statusCode={error.statusCode} message={error.message} />
+    );
+  }
+
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 md:p-10 flex flex-col items-center">
       {loading && <LoadingOverlay />}
@@ -274,6 +325,13 @@ function TeamPage() {
       <h2 className="text-2xl font-bold mt-10">Teams</h2>
       {teamsLoading ? (
         <TeamsLoadingPlaceholder />
+<<<<<<< HEAD
+=======
+      ) : teamsError ? (
+        <div className="text-red-400 text-center py-8">
+          Error loading teams: {teamsError}
+        </div>
+>>>>>>> c3d914d7738cdab3d25e67ea32c92b006f8c5f37
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl mt-6">
           {allTeams.length > 0 ? (
